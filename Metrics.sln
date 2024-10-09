@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metrics", "Metrics\Metrics.csproj", "{7EACE487-CD9C-4E57-9E7B-59CDAB47F7BD}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{982F81FA-CFCB-482C-9B25-AE0AC94D0C26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EACE487-CD9C-4E57-9E7B-59CDAB47F7BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EACE487-CD9C-4E57-9E7B-59CDAB47F7BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EACE487-CD9C-4E57-9E7B-59CDAB47F7BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EACE487-CD9C-4E57-9E7B-59CDAB47F7BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982F81FA-CFCB-482C-9B25-AE0AC94D0C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982F81FA-CFCB-482C-9B25-AE0AC94D0C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982F81FA-CFCB-482C-9B25-AE0AC94D0C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982F81FA-CFCB-482C-9B25-AE0AC94D0C26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B63C0E90-A864-4B92-ADDB-A5ED8EA19426}
+	EndGlobalSection
+EndGlobal
