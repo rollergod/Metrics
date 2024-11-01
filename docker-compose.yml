@@ -12,32 +12,32 @@ services:
     depends_on:
       - mssql
   
-#  prometheus:
-#   image: prom/prometheus
-#   volumes:
-#    - ./prometheus:/etc/prometheus
-#   ports:
-#    - "9090:9090" 
-#   command:
-#      - --web.enable-remote-write-receiver
-#      - --enable-feature=native-histograms
-#      - '--config.file=/etc/prometheus/prometheus.yml'
-#
-#  grafana:
-#    image: grafana/grafana:11.2.1
-#    ports:
-#     - "3000:3000"
-#    environment:
-#      - GF_AUTH_ANONYMOUS_ORG_ROLE=admin
-#      - GF_AUTH_ANONYMOUS_ENABLED=true
-#      - GF_AUTH_BASIC_ENABLED=false
-#    volumes:
-#      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
-#      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
-#      - ./grafana/dashboards:/var/lib/grafana/dashboards
-#    depends_on:
-#     - prometheus
-# 
+  prometheus:
+   image: prom/prometheus
+   volumes:
+    - ./prometheus:/etc/prometheus
+   ports:
+    - "9090:9090" 
+   command:
+      - --web.enable-remote-write-receiver
+      - --enable-feature=native-histograms
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
+  grafana:
+    image: grafana/grafana:11.2.1
+    ports:
+     - "3000:3000"
+    environment:
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_BASIC_ENABLED=false
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    depends_on:
+     - prometheus
+
   mssql:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:

@@ -1,4 +1,5 @@
-﻿using Metrics.Abstractions.Query;
+﻿using System.Diagnostics.Metrics;
+using Metrics.Abstractions.Query;
 using Metrics.Domain;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +9,7 @@ namespace Metrics.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PersonController(AppDbContext context) : ControllerBase
+    public class PersonController(AppDbContext context, IMeterFactory meterFactory) : ControllerBase
     {
         [HttpPost]
         public async Task<int> CreatePerson(string name)
@@ -30,6 +31,16 @@ namespace Metrics.Controllers
         {
             var query = new Person.Query{Id = id};
             return await queryDispatcher.HandleAsync<Person.Query, Person.ViewModel>(query, cancellationToken);
+        }
+
+        [HttpGet]
+        public int Test()
+        {
+            //можно добавлять каунтеры на методы 
+            var meter = meterFactory.Create(new MeterOptions("PersonController"));
+            var instrument = meter.CreateCounter<int>("test_counter");
+            instrument.Add(1);
+            return 1;
         }
     }
 }

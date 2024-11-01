@@ -50,8 +50,14 @@ builder.Services.AddOpenTelemetry()
     {
         x.AddPrometheusExporter() //экспортирует метрики 
             .AddRuntimeInstrumentation() //  использование процессора, работа сборщика мусора и память
-            .AddAspNetCoreInstrumentation(); // собираем метрики связанные с .net core , время отклика, кол-во запросов и статусы кодов
+            .AddAspNetCoreInstrumentation() // собираем метрики связанные с .net core , время отклика, кол-во запросов и статусы кодов
+            .AddMeter(
+                "Microsoft.AspNetCore.Hosting", 
+                "Microsoft.AspNetCore.Server.Kestrel",
+                "PersonController");
     });
+
+builder.Services.AddMetrics();
 
 var app = builder.Build();
 
