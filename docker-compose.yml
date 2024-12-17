@@ -7,8 +7,8 @@ services:
     ports:
       - "5000:8080"
     #    labels:
-#  Test3    - "com.prometheus.enable=true"
-#  Test1 вфывфыв   - "com.prometheus.port=8080"
+#      - "com.prometheus.enable=true"
+#  s    - "com.prometheus.port=8080"
     depends_on:
       - mssql
   
